@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  get "photos/index"
+  get "photos/show"
+  get "photos/new"
+  get "photos/create"
+  get "photos/edit"
+  get "photos/update"
+  get "photos/destroy"
+  get "galleries/index"
+  get "galleries/show"
+  get "galleries/new"
+  get "galleries/create"
+  get "galleries/edit"
+  get "galleries/update"
+  get "galleries/destroy"
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -6,10 +20,9 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Render dynamic PWA files from app/views/pwa/* (remember to link manifest in application.html.erb)
-  # get "manifest" => "rails/pwa#manifest", as: :pwa_manifest
-  # get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker
+  resources :galleries
+  resources :photos
+  
+  root "galleries#index"
 
-  # Defines the root path route ("/")
-  # root "posts#index"
 end
