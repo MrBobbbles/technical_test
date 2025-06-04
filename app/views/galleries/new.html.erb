@@ -1,2 +1,12 @@
-<h1>Galleries#new</h1>
-<p>Find me in app/views/galleries/new.html.erb</p>
+<h1>Make a new Gallery</h1>
+
+<%= form_with model: @gallery do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

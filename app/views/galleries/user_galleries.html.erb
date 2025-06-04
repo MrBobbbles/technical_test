@@ -1,4 +1,10 @@
-<h1>Galleries</h1>
+<h1>My Galleries</h1>
+
+<div class="button-container">
+<%= link_to "Create Gallery", new_gallery_path %>
+
+</div>
+
 <div class="galleries-container">
     <% @galleries.each do |gallery| %>
     <div class="gallery-container">

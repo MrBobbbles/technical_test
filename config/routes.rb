@@ -1,18 +1,5 @@
 Rails.application.routes.draw do
-  get "photos/index"
-  get "photos/show"
-  get "photos/new"
-  get "photos/create"
-  get "photos/edit"
-  get "photos/update"
-  get "photos/destroy"
-  get "galleries/index"
-  get "galleries/show"
-  get "galleries/new"
-  get "galleries/create"
-  get "galleries/edit"
-  get "galleries/update"
-  get "galleries/destroy"
+
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
@@ -22,6 +9,8 @@ Rails.application.routes.draw do
 
   resources :galleries
   resources :photos
+
+  get 'profile', to: 'galleries#user_galleries', as: 'user_galleries'
   
   root "galleries#index"
 
