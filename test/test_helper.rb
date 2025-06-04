@@ -4,8 +4,6 @@ require "rails/test_help"
 
 module ActiveSupport
   class TestCase
-    # Run tests in parallel with specified workers
-    parallelize(workers: :number_of_processors)
 
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
@@ -25,9 +23,26 @@ module ActiveSupport
       click_button "Log in"
     end
 
-    def log_out
-      click_link "Logout" if page.has_link?("Logout")
+    def log_out()
+      click_button "Log out" if page.has_button?("Log out")
     end
-    # Add more helper methods to be used by all tests here...
+
+    def view_galleries()
+      click_link "My Galleries" if page.has_link?("My Galleries")
+    end
+
+    def add_gallery_with(name:, description:)
+      click_link "Create Gallery" if page.has_link?("Create Gallery")
+      fill_in "Name", with: name
+      fill_in "Description", with: description
+      click_button "Create Gallery"
+    end
+
+    def add_photo_with(name:)
+      click_link "Add a Photo" if page.has_link?("Add a Photo")
+      fill_in "Photo Name", with: name
+      attach_file("photo[image]", Rails.root.join("test/fixtures/files/test.jpg"))
+      click_button "Add to Gallery"  
+    end
   end
 end
