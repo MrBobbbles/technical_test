@@ -1,12 +1,4 @@
 <h1>Make a new Gallery</h1>
 
-<%= form_with model: @gallery do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.submit %>
-  </div>
-<% end %>
+<%= render "form", gallery: @gallery %>
+<%= link_to "Cancel", user_galleries_path %>

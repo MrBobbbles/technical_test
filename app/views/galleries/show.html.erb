@@ -1,13 +1,19 @@
 
+<div class="info-box">
 <h1><%= @gallery.name %></h1>
+<p> <%= @gallery.description %> </p>
+</div>
 <% if user_signed_in? && current_user == @gallery.user %>
-  <%= link_to "Edit Gallery", edit_gallery_path(@gallery) %>
+  <%= link_to "Edit Gallery Info", edit_gallery_path(@gallery) %>
   <%= button_to "Delete Gallery", gallery_path(@gallery), method: :delete %>
-  <%= link_to "Add Photo", new_gallery_photo_path(@gallery) %>
+  <%= link_to "Add a Photo", new_gallery_photo_path(@gallery) %>
 <% end %>
 <% @gallery.photos.each do |photo| %>
 
     <h1><%= photo.name %></h1>
+    <%= link_to gallery_photo_path(photo.gallery, photo) do %>
     <%= image_tag photo.image if photo.image? %>
+  <% end %>
+
     
 <% end %>

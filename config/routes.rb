@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   #nested resources because the photos belong to a gallery
   resources :galleries do
-    resources :photos, only: [:new, :create, :edit, :update, :destroy]
+    resources :photos
   end
 
   get 'profile', to: 'galleries#user_galleries', as: 'user_galleries'

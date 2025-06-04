@@ -1,2 +1,9 @@
-<h1>Photos#show</h1>
-<p>Find me in app/views/photos/show.html.erb</p>
+<h1><%= @photo.name %></h1>
+
+<% if @photo.image.attached? %>
+  <%= image_tag @photo.image %>
+<% else %>
+  <p>No image available</p>
+<% end %>
+
+<%= link_to "Back to Gallery", gallery_path(@photo.gallery) %>

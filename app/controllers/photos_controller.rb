@@ -52,7 +52,7 @@ class PhotosController < ApplicationController
   end
 
   def authorize_gallery_owner!
-    set_gallery unless @gallery
+    
     unless @gallery.user == current_user
       redirect_to root_path, alert: "You are not authorized to perform this action."
     end

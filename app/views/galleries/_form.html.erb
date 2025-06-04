@@ -1,0 +1,15 @@
+<%= form_with model: gallery do |form| %>
+  <div>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :description %>
+    <%= form.text_field :description %>
+  </div>
+
+  <div>
+    <%= form.submit @gallery.persisted? ? "Save Info" : "Create Gallery" %>
+  </div>
+<% end %>

@@ -1,6 +1,7 @@
 class GalleriesController < ApplicationController
   
   before_action :set_gallery, only: %i[ show edit update destroy ]
+  before_action :authorize_gallery_owner!, only: %i[edit update destroy]
 
   def index
     @galleries = Gallery.all
@@ -31,9 +32,17 @@ class GalleriesController < ApplicationController
   end
 
   def update
+    if @gallery.update(gallery_params)
+      redirect_to @gallery
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy
+    @gallery.destroy
+    redirect_to user_galleries_path
+  
   end
 
 
@@ -43,7 +52,13 @@ class GalleriesController < ApplicationController
     end
 
     def gallery_params
-      params.require(:gallery).permit(:name)
+      params.require(:gallery).permit(:name, :description)
+    end
+
+    def authorize_gallery_owner!
+      unless @gallery.user == current_user
+        redirect_to root_path, alert: "You are not authorized to perform this action."
+      end
     end
 
 end
