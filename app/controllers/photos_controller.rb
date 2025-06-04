@@ -2,7 +2,7 @@ class PhotosController < ApplicationController
   before_action :set_gallery
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :authorize_gallery_owner!, only: %i[new create edit update destroy]
-  
+
   def index
     @photos = @gallery.photos
   end
@@ -52,7 +52,6 @@ class PhotosController < ApplicationController
   end
 
   def authorize_gallery_owner!
-    
     unless @gallery.user == current_user
       redirect_to root_path, alert: "You are not authorized to perform this action."
     end
@@ -62,4 +61,3 @@ class PhotosController < ApplicationController
     params.require(:photo).permit(:name, :image)
   end
 end
-

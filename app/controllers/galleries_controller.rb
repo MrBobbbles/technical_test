@@ -1,5 +1,4 @@
 class GalleriesController < ApplicationController
-  
   before_action :set_gallery, only: %i[ show edit update destroy ]
   before_action :authorize_gallery_owner!, only: %i[edit update destroy]
 
@@ -12,7 +11,6 @@ class GalleriesController < ApplicationController
   end
 
   def show
-
   end
 
   def new
@@ -42,7 +40,6 @@ class GalleriesController < ApplicationController
   def destroy
     @gallery.destroy
     redirect_to user_galleries_path
-  
   end
 
 
@@ -60,5 +57,4 @@ class GalleriesController < ApplicationController
         redirect_to root_path, alert: "You are not authorized to perform this action."
       end
     end
-
 end

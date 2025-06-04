@@ -2,7 +2,7 @@
 # development, test). The code here should be idempotent so that it can be executed at any point in every environment.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
-#Clearing all data for testing
+# Clearing all data for testing
 User.destroy_all
 Gallery.destroy_all
 Photo.destroy_all
