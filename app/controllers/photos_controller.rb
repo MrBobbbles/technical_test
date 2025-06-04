@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
   def update
     @photo = @gallery.photos.find(params[:id])
     if @photo.update(photo_params)
-      redirect_to gallery_photo_path(@gallery, @photo), notice: "Photo updated!"
+      redirect_to @gallery, notice: "Photo updated!"
     else
       render :edit, status: :unprocessable_entity
     end
@@ -42,7 +42,7 @@ class PhotosController < ApplicationController
   def destroy
     @photo = @gallery.photos.find(params[:id])
     @photo.destroy
-    redirect_to gallery_photos_path(@gallery), notice: "Photo deleted"
+    redirect_to @gallery, notice: "Photo deleted"
   end
 
   private

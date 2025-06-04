@@ -1,17 +1,2 @@
-<h1>Add a Photo to <%= @gallery.name %></h1>
-
-<%= form_with(model: [@gallery, @photo], local: true, html: { multipart: true }) do |form| %>
-  <div>
-    <%= form.label :name, "Photo Name" %><br>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :image, "Upload Image" %><br>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.submit "Add To Gallery" %>
-  </div>
-<% end %>
+<h1>Add a Photo</h1>
+<%= render 'form', gallery: @gallery, photo: @photo %>

@@ -1,0 +1,15 @@
+<%= form_with(model: [gallery, photo], local: true, html: { multipart: true }) do |form| %>
+  <div>
+    <%= form.label :name, "Photo Name" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :image, "Upload Image" %><br>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.submit photo.persisted? ? "Save Changes" : "Add to Gallery" %>
+  </div>
+<% end %>

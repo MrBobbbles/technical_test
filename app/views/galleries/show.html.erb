@@ -1,19 +1,29 @@
 
 <div class="info-box">
-<h1><%= @gallery.name %></h1>
-<p> <%= @gallery.description %> </p>
+  <h1><%= @gallery.name %></h1>
+  <p><%= @gallery.description %></p>
 </div>
+
 <% if user_signed_in? && current_user == @gallery.user %>
   <%= link_to "Edit Gallery Info", edit_gallery_path(@gallery) %>
-  <%= button_to "Delete Gallery", gallery_path(@gallery), method: :delete %>
   <%= link_to "Add a Photo", new_gallery_photo_path(@gallery) %>
+  <%= button_to "Delete Gallery", gallery_path(@gallery), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+  
 <% end %>
-<% @gallery.photos.each do |photo| %>
 
-    <h1><%= photo.name %></h1>
-    <%= link_to gallery_photo_path(photo.gallery, photo) do %>
-    <%= image_tag photo.image if photo.image? %>
+<div class="photos-container">
+  <% @gallery.photos.each do |photo| %>
+    <div class="photo-card">
+      <h2><%= photo.name %></h2>
+
+      <%= link_to gallery_photo_path(photo.gallery, photo) do %>
+        <%= image_tag(photo.image.variant(resize_to_limit: [150, 150])) if photo.image.attached? %>
+      <% end %>
+
+      <% if user_signed_in? && current_user == @gallery.user %>
+        <%= link_to "Edit Photo", edit_gallery_photo_path(photo.gallery, photo) %>
+        <%= button_to "Delete Photo", gallery_photo_path(photo.gallery, photo), method: :delete, data: { turbo_confirm: "Are you sure?" } %>
+      <% end %>
+    </div>
   <% end %>
-
-    
-<% end %>
+</div>
