@@ -1,2 +1,17 @@
-<h1>Photos#new</h1>
-<p>Find me in app/views/photos/new.html.erb</p>
+<h1>Add a Photo to <%= @gallery.name %></h1>
+
+<%= form_with(model: [@gallery, @photo], local: true, html: { multipart: true }) do |form| %>
+  <div>
+    <%= form.label :name, "Photo Name" %><br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :image, "Upload Image" %><br>
+    <%= form.file_field :image %>
+  </div>
+
+  <div>
+    <%= form.submit "Add Photo" %>
+  </div>
+<% end %>

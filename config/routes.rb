@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
 
-  resources :galleries
-  resources :photos
+  #nested resources because the photos belong to a gallery
+  resources :galleries do
+    resources :photos, only: [:new, :create, :edit, :update, :destroy]
+  end
 
   get 'profile', to: 'galleries#user_galleries', as: 'user_galleries'
   
