@@ -1,38 +1,52 @@
 require "test_helper"
 
 class PhotosControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
+  setup do
+    @gallery = galleries(:one)     # assumes you have fixtures for galleries
+    @photo = photos(:one)           # assumes you have fixtures for photos
+    @user = users(:one)
+    sign_in @user
+  end
+
   test "should get index" do
-    get photos_index_url
+    get gallery_photos_url(@gallery)
     assert_response :success
   end
 
   test "should get show" do
-    get photos_show_url
+    get gallery_photo_url(@gallery, @photo)
     assert_response :success
   end
 
   test "should get new" do
-    get photos_new_url
+    get new_gallery_photo_url(@gallery)
     assert_response :success
   end
 
-  test "should get create" do
-    get photos_create_url
-    assert_response :success
+  test "should create photo" do
+    assert_difference('Photo.count') do
+      post gallery_photos_url(@gallery), params: { photo: { name: "New Photo", image: fixture_file_upload('test/fixtures/files/test.jpg', 'image/jpeg') } }
+    end
+    assert_redirected_to gallery_url(@gallery)
   end
 
   test "should get edit" do
-    get photos_edit_url
+    get edit_gallery_photo_url(@gallery, @photo)
     assert_response :success
   end
 
-  test "should get update" do
-    get photos_update_url
-    assert_response :success
+  test "should update photo" do
+    patch gallery_photo_url(@gallery, @photo), params: { photo: { name: "Updated Name" } }
+    assert_redirected_to gallery_url(@gallery)
+    @photo.reload
+    assert_equal "Updated Name", @photo.name
   end
 
-  test "should get destroy" do
-    get photos_destroy_url
-    assert_response :success
+  test "should destroy photo" do
+    assert_difference('Photo.count', -1) do
+      delete gallery_photo_url(@gallery, @photo)
+    end
+    assert_redirected_to gallery_url(@gallery)
   end
 end

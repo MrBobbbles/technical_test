@@ -1,9 +1,8 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
+  name: Gallery One
+  description: "Sample"
   user: one
 
-two:
-  name: MyString
-  user: two
+
