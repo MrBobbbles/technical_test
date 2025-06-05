@@ -1,14 +1,15 @@
 <h1>My Galleries</h1>
 
 <div class="button-container">
-<%= link_to "Create Gallery", new_gallery_path %>
-
+<%= link_to "Create Gallery", new_gallery_path, class: "btn new-gallery" %>
 </div>
 
 <div class="galleries-container">
-    <% @galleries.each do |gallery| %>
+  <% @galleries.each do |gallery| %>
     <div class="gallery-container">
-    <%= link_to gallery.name, gallery %>
+      <h2 class= "gallery-title"><%= gallery.name %> </h2>
+        <p class="gallery-description"><%= gallery.description || "no description" %></p>
+      <%= link_to "View", gallery, class: "btn view-gallery"%>
     </div>
-    <% end %>
+  <% end %>
 </div>

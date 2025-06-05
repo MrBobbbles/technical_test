@@ -1,9 +1,17 @@
-<h1><%= @photo.name %></h1>
-
-<% if @photo.image.attached? %>
-  <%= image_tag @photo.image %>
-<% else %>
-  <p>No image available</p>
-<% end %>
-
-<%= link_to "Back to Gallery", gallery_path(@photo.gallery) %>
+<div class="photo-show-container">
+  <h1><%= @photo.name %></h1>
+  
+  <div class="photo-display">
+    <% if @photo.image.attached? %>
+      <%= image_tag @photo.image %>
+    <% else %>
+      <p>No image available</p>
+    <% end %>
+  </div>
+  
+  <div class="photo-actions">
+    <%= link_to gallery_path(@photo.gallery), class: "btn back" do %>
+      <span>Back to Gallery</span>
+    <% end %>
+  </div>
+</div>

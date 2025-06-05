@@ -1,15 +1,62 @@
-<%= form_with(model: [gallery, photo], local: true, html: { multipart: true }) do |form| %>
+<%= form_with(model: [gallery, photo], local: true, html: { multipart: true, class: "form-container" }) do |form| %>
   <div>
-    <%= form.label :name, "Photo Name" %><br>
-    <%= form.text_field :name %>
+    <%= form.label :name, "Photo Namlle", class: "form-label" %><br>
+    <%= form.text_field :name, class: "form-text" %>
+  </div>
+<%= stylesheet_link_tag "https://unpkg.com/cropperjs/dist/cropper.min.css" %>
+<%= javascript_include_tag "https://unpkg.com/cropperjs/dist/cropper.min.js" %>
+  <div>
+    <%= form.label :image, "Upload Image", class: "form-label" %><br>
+    <%= form.file_field :image, class: "form-img", id: "imageInput" %>
+  </div>
+
+  <!-- Hidden fields for crop data -->
+  <%= hidden_field_tag "crop[x]", nil, id: "crop_x" %>
+  <%= hidden_field_tag "crop[y]", nil, id: "crop_y" %>
+  <%= hidden_field_tag "crop[width]", nil, id: "crop_width" %>
+  <%= hidden_field_tag "crop[height]", nil, id: "crop_height" %>
+
+  <!-- Preview image -->
+  <div>
+    <img id="preview" style="display:none; max-width: 100%; margin-top: 1rem;" />
   </div>
 
   <div>
-    <%= form.label :image, "Upload Image" %><br>
-    <%= form.file_field :image %>
-  </div>
-
-  <div>
-    <%= form.submit photo.persisted? ? "Save Changes" : "Add to Gallery" %>
+    <%= form.submit photo.persisted? ? "Save Changes" : "Add to Gallery", class: "form-submit" %>
   </div>
 <% end %>
+
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+  const input = document.getElementById("imageInput");
+  const preview = document.getElementById("preview");
+  let cropper;
+
+  input.addEventListener("change", function (e) {
+    const file = e.target.files[0];
+    const reader = new FileReader();
+    reader.onload = function (event) {
+      preview.src = event.target.result;
+      preview.style.display = "block";
+
+      if (cropper) cropper.destroy();
+
+      const CropperClass = Cropper.default || Cropper;
+
+      cropper = new CropperClass(preview, {
+        aspectRatio: 1,
+        viewMode: 1,
+        crop(event) {
+          document.getElementById("crop_x").value = event.detail.x;
+          document.getElementById("crop_y").value = event.detail.y;
+          document.getElementById("crop_width").value = event.detail.width;
+          document.getElementById("crop_height").value = event.detail.height;
+        }
+      });
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+</script>

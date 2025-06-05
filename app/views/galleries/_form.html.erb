@@ -1,15 +1,15 @@
-<%= form_with model: gallery do |form| %>
+<%= form_with model: gallery, class: "form-container" do |form| %>
   <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.label :name, class: "form-label" %>
+    <%= form.text_field :name, class: "form-text"%>
   </div>
 
   <div>
-    <%= form.label :description %>
-    <%= form.text_field :description %>
+    <%= form.label :description, class: "form-label" %>
+    <%= form.text_field :description, class: "form-text"%>
   </div>
 
   <div>
-    <%= form.submit @gallery.persisted? ? "Save Info" : "Create Gallery" %>
+    <%= form.submit @gallery.persisted? ? "Save Info" : "Create Gallery", class: "btn form-submit" %>
   </div>
 <% end %>

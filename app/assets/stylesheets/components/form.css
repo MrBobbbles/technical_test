@@ -1,0 +1,243 @@
+/* Gallery form styling */
+
+/* Form container */
+.form-container{
+  background: white;
+  border-radius: 16px;
+  padding: 40px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  max-width: 600px;
+  margin: 0 0 20px 0;
+}
+
+/* Form field containers */
+form > div {
+  margin-bottom: 24px;
+}
+
+form > div:last-child {
+  margin-bottom: 0;
+  margin-top: 32px;
+}
+
+/* Form labels */
+.form-label {
+  display: block;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #2d3748;
+  margin-bottom: 8px;
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+}
+
+/* Text input fields */
+.form-text {
+  width: 100%;
+  padding: 14px 16px;
+  border: 2px solid #e2e8f0;
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  color: #2d3748;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+}
+
+.form-text:focus {
+  outline: none;
+  border-color: #667eea;
+  background-color: #f7fafc;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.form-text:hover:not(:focus) {
+  border-color: #cbd5e0;
+  background-color: #f7fafc;
+}
+
+/* Placeholder styling */
+.form-text::placeholder {
+  color: #a0aec0;
+  font-style: italic;
+}
+
+/*for the img submit */
+.form-img {
+  display: block;
+  width: 95%;
+  padding: 12px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: inherit;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-img:hover {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+.form-img:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.25);
+}
+
+/* Style the file input when a file is selected */
+.form-img:valid {
+  border-color: #28a745;
+  background-color: #f8fff9;
+}
+
+/* Optional: Hide the default "No file chosen" text */
+.form-img::-webkit-file-upload-button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 10px;
+  font-size: 14px;
+}
+
+.form-img::-webkit-file-upload-button:hover {
+  background: #0056b3;
+}
+
+/* Submit button */
+.form-submit {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 100%;
+}
+
+.form-submit:hover {
+  background: linear-gradient(135deg, #38a169 0%, #2f855a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(72, 187, 120, 0.4);
+}
+
+.form-submit:active {
+  transform: translateY(0);
+  box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+/* Error states */
+.form-text.error {
+  border-color: #f56565;
+  background-color: #fed7d7;
+}
+
+.form-text.error:focus {
+  border-color: #e53e3e;
+  box-shadow: 0 0 0 3px rgba(245, 101, 101, 0.1);
+}
+
+/* Success states */
+.form-text.success {
+  border-color: #48bb78;
+  background-color: #c6f6d5;
+}
+
+/* Form title styling (if you want to add one) */
+.form-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2rem;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #1a1a1a;
+  text-transform: lowercase;
+  margin: 0 0 32px 0;
+  text-align: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  form {
+    padding: 24px;
+    margin: 0 16px;
+  }
+  
+  .form-title {
+    font-size: 1.8rem;
+    margin-bottom: 24px;
+  }
+  
+  .form-text {
+    padding: 12px 14px;
+    font-size: 0.95rem;
+  }
+  
+  .form-submit {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+}
+
+/* Focus management for better accessibility */
+.form-text:focus-visible {
+  outline: 2px solid #667eea;
+  outline-offset: 2px;
+}
+
+/* Disabled state */
+.form-text:disabled,
+.form-submit:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-text:disabled:hover {
+  border-color: #e2e8f0;
+  background-color: #ffffff;
+  transform: none;
+}
+
+.form-submit:disabled:hover {
+  background: linear-gradient(135deg, #48bb78 0%, #38a169 100%);
+  transform: none;
+  box-shadow: none;
+}
+
+.cancel {
+  display: inline-block;
+  padding: 14px 32px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid #e2e8f0;
+  cursor: pointer;
+  text-align: center;
+  background: white;
+  color: #718096;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+}

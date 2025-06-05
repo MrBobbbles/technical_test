@@ -9,6 +9,37 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- body{
-  color:blue
- }
+body {
+  font-family: 'Inter', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1.1;
+  letter-spacing: 0.02em;
+  color: #2d3748;
+  text-transform: lowercase;
+  max-width: 800px;
+  border-left: 4px solid #667eea;
+  padding-left: 24px;
+}
+
+.btn {
+  text-decoration: none;
+  background: linear-gradient(45deg, #ee3a8d 0%, #ee2b52 100%);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+
