@@ -4,7 +4,6 @@ require "rails/test_help"
 
 module ActiveSupport
   class TestCase
-
     # Setup all fixtures in test/fixtures/*.yml for all tests in alphabetical order.
     fixtures :all
 
@@ -23,11 +22,11 @@ module ActiveSupport
       click_button "Log in"
     end
 
-    def log_out()
+    def log_out
       click_button "Log out" if page.has_button?("Log out")
     end
 
-    def view_galleries()
+    def view_galleries
       click_link "My Galleries" if page.has_link?("My Galleries")
     end
 
@@ -42,7 +41,7 @@ module ActiveSupport
       click_link "Add a Photo" if page.has_link?("Add a Photo")
       fill_in "Photo Name", with: name
       attach_file("photo[image]", Rails.root.join("test/fixtures/files/test.jpg"))
-      click_button "Add to Gallery"  
+      click_button "Add to Gallery"
     end
   end
 end

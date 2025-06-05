@@ -25,8 +25,8 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create photo" do
-    assert_difference('Photo.count') do
-      post gallery_photos_url(@gallery), params: { photo: { name: "New Photo", image: fixture_file_upload('test/fixtures/files/test.jpg', 'image/jpeg') } }
+    assert_difference("Photo.count") do
+      post gallery_photos_url(@gallery), params: { photo: { name: "New Photo", image: fixture_file_upload("test/fixtures/files/test.jpg", "image/jpeg") } }
     end
     assert_redirected_to gallery_url(@gallery)
   end
@@ -44,7 +44,7 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy photo" do
-    assert_difference('Photo.count', -1) do
+    assert_difference("Photo.count", -1) do
       delete gallery_photo_url(@gallery, @photo)
     end
     assert_redirected_to gallery_url(@gallery)

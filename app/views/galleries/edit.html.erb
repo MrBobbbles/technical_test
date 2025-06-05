@@ -1,4 +1,4 @@
 <h1>Edit Gallery Info</h1>
 
 <%= render "form", gallery: @gallery %>
-<%= link_to "Cancel", user_galleries_path, class: "btn cancel"%>
+<%= link_to "Cancel", gallery_path(@gallery), class: "btn cancel" %>

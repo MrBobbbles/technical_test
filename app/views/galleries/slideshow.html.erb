@@ -1,0 +1,47 @@
+<div class="info-box">
+  <h1><%= @gallery.name %> - Slideshow</h1>
+  <p><%= @gallery.description %></p>
+</div>
+
+<section class="splide">
+  <div class="splide__slider">
+		<div class="splide__track">
+			<ul class="splide__list">
+        
+        <% @gallery.photos.each do |photo| %>
+            <li class="splide__slide">
+              <%= image_tag photo.image, alt: photo.name if photo.image.attached? %>
+              <div class: "slide-name"><%= photo.name %></div>
+            </li>
+          
+        <% end %>
+        
+			</ul>
+		</div>
+    <div class="splide__progress">
+      <div class="splide__progress__bar">
+      </div>
+    </div>
+  </div>
+
+  <button class="splide__toggle slide-btn btn" type="button">
+	  <span class="splide__toggle__play">Play</span>
+	  <span class="splide__toggle__pause">Pause</span>
+  </button>
+
+</section>
+<%= link_to gallery_path(@gallery), class: "btn back-btn" do %>
+  <span>Back to Gallery</span>
+<% end %>
+
+<script>
+  document.addEventListener("turbo:load", function () {
+    new Splide('.splide', {
+      type    : 'loop',
+      autoplay: 'pause',
+      perPage : 1,
+    }).mount();
+  });
+</script>
+
+

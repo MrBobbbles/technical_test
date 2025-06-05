@@ -18,6 +18,14 @@
     </div>
   <% end %>
 
+  <% if resource.errors.any? %>
+    <ul class="errors">
+      <% resource.errors.full_messages.each do |msg| %>
+        <li class="err-msg"><%= msg%></li>
+      <% end %>
+    </ul>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "Log in", class: "form-submit"%>
   </div>

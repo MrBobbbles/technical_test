@@ -16,7 +16,6 @@ body {
   line-height: 1.1;
   letter-spacing: 0.02em;
   color: #2d3748;
-  text-transform: lowercase;
   max-width: 800px;
   border-left: 4px solid #667eea;
   padding-left: 24px;
@@ -42,4 +41,8 @@ body {
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
 }
 
+.err-msg{
+  font-size: 1.5rem;
+  color: red;
+}
 

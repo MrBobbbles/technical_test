@@ -1,8 +1,7 @@
 <h2>Sign up</h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { class: "form-container" }) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
-
+  
   <div class="field">
     <%= f.label :email, class: "form-label"%><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-email" %>
@@ -20,6 +19,14 @@
     <%= f.label :password_confirmation, class: "form-label"%><br />
     <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-password" %>
   </div>
+
+  <% if resource.errors.any? %>
+    <ul class="errors">
+      <% resource.errors.full_messages.each do |msg| %>
+        <li class="err-msg"><%= msg%></li>
+      <% end %>
+    </ul>
+  <% end %>
 
   <div class="actions">
     <%= f.submit "Sign up", class: "form-submit" %>

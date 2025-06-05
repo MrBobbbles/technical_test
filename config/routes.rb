@@ -13,5 +13,7 @@ Rails.application.routes.draw do
 
   get "profile", to: "galleries#user_galleries", as: "user_galleries"
 
+  get "galleries/:id/slideshow", to: "galleries#slideshow", as: "gallery_slideshow"
+
   root "galleries#index"
 end

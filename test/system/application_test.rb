@@ -3,18 +3,18 @@ require "test_helper"
 
 class UserFlowsTest < ApplicationSystemTestCase
   test "user can sign up and be logged in" do
-    sign_up_with(email: "tester1@test.com", password:"password1")
+    sign_up_with(email: "tester1@test.com", password: "password1")
     assert_text "My Galleries"
   end
 
   test "user can sign up and sign out" do
-    sign_up_with(email: "tester1@test.com", password:"password1")
+    sign_up_with(email: "tester1@test.com", password: "password1")
     log_out()
     assert_no_text "My Galleries"
   end
 
   test "user can sign up and log in" do
-    sign_up_with(email: "tester1@test.com", password:"password1")
+    sign_up_with(email: "tester1@test.com", password: "password1")
     log_out()
     log_in_with(email: "tester1@test.com", password: "password1")
     assert_text "My Galleries"

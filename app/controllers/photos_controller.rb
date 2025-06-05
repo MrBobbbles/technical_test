@@ -11,16 +11,16 @@ class PhotosController < ApplicationController
     @photo = @gallery.photos.find(params[:id])
   end
 
-  # build is used to auto asign a foriegn key to photo
   def new
     @photo = @gallery.photos.build
   end
 
   def create
+    puts "hiay"
     @photo = @gallery.photos.build(photo_params)
 
     if @photo.save
-      redirect_to @gallery, notice: "Photo added successfully."
+      redirect_to @gallery, notice: "Photo added and cropped successfully."
     else
       render :new, status: :unprocessable_entity
     end
@@ -33,7 +33,7 @@ class PhotosController < ApplicationController
   def update
     @photo = @gallery.photos.find(params[:id])
     if @photo.update(photo_params)
-      redirect_to @gallery, notice: "Photo updated!"
+      redirect_to @gallery, notice: "Photo updated and cropped!"
     else
       render :edit, status: :unprocessable_entity
     end

@@ -1,10 +1,14 @@
 <h1>Galleries</h1>
 <div class="galleries-container">
-  <% @galleries.each do |gallery| %>
-    <div class="gallery-container">
-      <h2 class= "gallery-title"><%= gallery.name %> </h2>
-        <p class="gallery-description"><%= gallery.description || "no description" %></p>
-      <%= link_to "View", gallery, class: "btn view-gallery"%>
-    </div>
+  <% if @galleries.any? %>
+    <% @galleries.each do |gallery| %>
+      <div class="gallery-container">
+        <h2 class="gallery-title"><%= gallery.name %></h2>
+        <p class="gallery-description"><%= gallery.description.presence || "no description" %></p>
+        <%= link_to "View", gallery, class: "btn view-gallery" %>
+      </div>
+    <% end %>
+  <% else %>
+    <p>There aren't any galleries yet. Please register or login to create some.</p>
   <% end %>
 </div>

@@ -1,5 +1,5 @@
 class GalleriesController < ApplicationController
-  before_action :set_gallery, only: %i[ show edit update destroy ]
+  before_action :set_gallery, only: %i[ show edit update destroy slideshow]
   before_action :authorize_gallery_owner!, only: %i[edit update destroy]
 
   def index
@@ -42,6 +42,8 @@ class GalleriesController < ApplicationController
     redirect_to user_galleries_path
   end
 
+  def slideshow
+  end
 
   private
     def set_gallery

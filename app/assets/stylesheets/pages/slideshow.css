@@ -1,0 +1,175 @@
+/* Gallery info section */
+.info-box {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.info-box h1 {
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.info-box p {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Slideshow container */
+.splide {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+/* Individual slide styling */
+.splide__slide {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.splide__slide img {
+  max-width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Photo name positioning at bottom */
+.slide -name {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: white;
+  text-align: center;
+  padding: 2rem 1rem 1rem 1rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Progress bar styling */
+.splide__progress {
+  background: rgba(255, 255, 255, 0.3);
+  height: 4px;
+  border-radius: 2px;
+  margin-top: 1rem;
+}
+
+.splide__progress__bar {
+  background: #007bff;
+  height: 100%;
+  border-radius: 2px;
+}
+
+/* Play/Pause button styling */
+.splide__toggle {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 2rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+/* Back button styling */
+.back-btn {
+  background: #6c757d;
+  background-image: none;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 2rem;
+  margin-right: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(108, 117, 125, 0.3);
+}
+
+.back-btn:hover {
+  background: #5a6268;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(108, 117, 125, 0.4);
+}
+
+.back-btn:active {
+  transform: translateY(0);
+}
+
+.splide__toggle:hover {
+  background: #0056b3;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.4);
+}
+
+.splide__toggle:active {
+  transform: translateY(0);
+}
+
+/* Pagination dots styling */
+.splide__pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 1rem;
+  gap: 8px;
+}
+
+.splide__pagination__page {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(151, 233, 249, 0.5);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 0.6;
+}
+
+.splide__pagination__page:hover {
+  background: rgba(168, 237, 254, 0.8);
+  opacity: 0.8;
+  transform: scale(1.1);
+}
+
+.splide__pagination__page.is-active {
+  background: #007bff;
+  opacity: 1;
+  border-color: rgba(0, 123, 255, 0.3);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .info-box h1 {
+    font-size: 1.5rem;
+  }
+  
+  .photo-name {
+    font-size: 1rem;
+    padding: 1.5rem 0.75rem 0.75rem 0.75rem;
+  }
+  
+  .splide__toggle {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+  
+  .splide__pagination__page {
+    width: 10px;
+    height: 10px;
+  }
+}

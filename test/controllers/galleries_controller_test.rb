@@ -24,7 +24,7 @@ class GalleriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should create gallery" do
-    assert_difference('Gallery.count') do
+    assert_difference("Gallery.count") do
       post galleries_url, params: { gallery: { name: "Test Gallery", description: "Test description" } }
     end
     assert_redirected_to gallery_url(Gallery.last)
@@ -43,7 +43,7 @@ class GalleriesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should destroy gallery" do
-    assert_difference('Gallery.count', -1) do
+    assert_difference("Gallery.count", -1) do
       delete gallery_url(@gallery)
     end
     assert_redirected_to user_galleries_url

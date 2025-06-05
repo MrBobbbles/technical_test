@@ -1,16 +1,16 @@
-
 <div class="info-box">
   <h1><%= @gallery.name %></h1>
   <p><%= @gallery.description %></p>
 </div>
 
-<% if user_signed_in? && current_user == @gallery.user %>
-  <div class= "gallery-actions">
+<div class= "gallery-actions">
+  <%= link_to "Slideshow", gallery_slideshow_path(@gallery), class: "btn" %>
+  <% if user_signed_in? && current_user == @gallery.user %>
     <%= link_to "Edit Gallery Info", edit_gallery_path(@gallery), class: "btn"%>
     <%= link_to "Add a Photo", new_gallery_photo_path(@gallery), class: "btn" %>
     <%= button_to "Delete Gallery", gallery_path(@gallery), method: :delete, data: { turbo_confirm: "Are you sure?" }, class: "btn" %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <div class="photos-container">
   <% @gallery.photos.each do |photo| %>
