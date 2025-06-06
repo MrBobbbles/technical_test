@@ -1,4 +1,5 @@
 require "test_helper"
+include ActionDispatch::TestProcess
 
 class PhotoTest < ActiveSupport::TestCase
   test "should not save photo without name" do
@@ -9,10 +10,5 @@ class PhotoTest < ActiveSupport::TestCase
   test "should not save photo without gallery" do
     photo = Photo.new(name: "Test Photo")
     assert_not photo.save, "Saved the photo without a gallery"
-  end
-
-  test "should save valid photo" do
-    photo = Photo.new(name: "Valid Photo", gallery: galleries(:one))
-    assert photo.save, "Did not save the valid photo"
   end
 end

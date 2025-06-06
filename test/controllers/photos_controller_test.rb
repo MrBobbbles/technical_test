@@ -37,7 +37,7 @@ class PhotosControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update photo" do
-    patch gallery_photo_url(@gallery, @photo), params: { photo: { name: "Updated Name" } }
+    patch gallery_photo_url(@gallery, @photo), params: { photo: { name: "Updated Name", image: fixture_file_upload("test/fixtures/files/test.jpg", "image/jpeg") } }
     assert_redirected_to gallery_url(@gallery)
     @photo.reload
     assert_equal "Updated Name", @photo.name

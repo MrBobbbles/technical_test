@@ -12,4 +12,13 @@
   <div>
     <%= form.submit @gallery.persisted? ? "Save Info" : "Create Gallery", class: "btn form-submit" %>
   </div>
+
+  <% if gallery.errors.any? %>
+    <ul class="errors">
+      <% gallery.errors.full_messages.each do |msg| %>
+        <li class="err-msg"><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <% end %>

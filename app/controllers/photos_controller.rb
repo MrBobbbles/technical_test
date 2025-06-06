@@ -16,7 +16,6 @@ class PhotosController < ApplicationController
   end
 
   def create
-    puts "hiay"
     @photo = @gallery.photos.build(photo_params)
 
     if @photo.save
@@ -33,7 +32,7 @@ class PhotosController < ApplicationController
   def update
     @photo = @gallery.photos.find(params[:id])
     if @photo.update(photo_params)
-      redirect_to @gallery, notice: "Photo updated and cropped!"
+      redirect_to @gallery, notice: "Photo updated"
     else
       render :edit, status: :unprocessable_entity
     end

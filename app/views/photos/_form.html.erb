@@ -23,4 +23,13 @@
   <div>
     <%= form.submit photo.persisted? ? "Save Changes" : "Add to Gallery", class: "form-submit" %>
   </div>
+
+  <% if photo.errors.any? %>
+    <ul class="errors">
+      <% photo.errors.full_messages.each do |msg| %>
+        <li class="err-msg"><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
 <% end %>

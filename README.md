@@ -1,24 +1,68 @@
 # README
+A Ruby on Rails application for photo galleries
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Prerequisites
 
-Things you may want to cover:
+Ruby (version specified in .ruby-version or Gemfile)
+Git
+Docker (for containerized setup)
+Ubuntu WSL (for Windows users doing manual setup)
 
-* Ruby version
+# Setup Options
+Option 1: Manual Setup (Windows with WSL)
 
-* System dependencies
+Clone the repository
+git clone https://github.com/MrBobbbles/technical_test.git
+cd technical_test
 
-* Configuration
+Install dependencies
+Install Ruby (if not already installed)
+bundle install
 
-* Database creation
+Start the server
+bin/rails server -p 3000
 
-* Database initialization
+Access the application
 
-* How to run the test suite
+Open your web browser
+Navigate to http://localhost:3000
 
-* Services (job queues, cache servers, search engines, etc.)
 
-* Deployment instructions
+Option 2: Docker Setup (Recommended)
 
-* ...
+Clone and build
+git clone https://github.com/MrBobbbles/technical_test.git
+cd technical_test
+docker build -t technical_test .
+Note: Build process takes approximately 5-10 minutes
+Run the container
+docker run -p 3000:3000 technical_test
+
+Access the application
+
+Open your web browser
+Navigate to http://localhost:3000
+#To set up and run the application manually on windows:
+
+# Testing
+
+note I could not get end to end test to work with docker
+
+# Unit Tests
+
+Manual Setup:
+bashbin/rails test
+
+Docker:
+docker run --rm technical_test bundle exec rails test
+
+# End-to-End Tests
+
+Manual Setup:
+# Install Chromium (first time only)
+sudo snap install chromium
+
+Run system tests
+bin/rails test:system
+
+Please contact TJ Hornsey at tj.hornsey@gmail.com

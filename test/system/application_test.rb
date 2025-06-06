@@ -1,5 +1,6 @@
 require "application_system_test_case"
 require "test_helper"
+include ActionDispatch::TestProcess
 
 class UserFlowsTest < ApplicationSystemTestCase
   test "user can sign up and be logged in" do

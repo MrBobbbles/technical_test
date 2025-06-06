@@ -1,7 +1,12 @@
-FROM ruby:3.2
+FROM ruby:3.4.4
 
 # Install dependencies: nodejs, sqlite3 client libraries
-RUN apt-get update -qq && apt-get install -y nodejs sqlite3 libsqlite3-dev
+RUN apt-get update -qq && apt-get install -y \
+  nodejs \
+  sqlite3 \
+  libsqlite3-dev \
+  libvips42 \
+  chromium
 
 WORKDIR /app
 
