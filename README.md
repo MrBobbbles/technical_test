@@ -59,7 +59,6 @@ Open your web browser
 
 Navigate to http://localhost:3000
 
-#To set up and run the application manually on windows:
 
 # Testing
 
