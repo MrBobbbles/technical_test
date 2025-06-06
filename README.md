@@ -39,6 +39,10 @@ Navigate to http://localhost:3000
 
 Option 2: Docker Setup (Recommended)
 
+open WSL ubuntu window (tested with 24.04.1)
+
+enable docker for that WSL
+
 Clone and build
 
 git clone https://github.com/MrBobbbles/technical_test.git
