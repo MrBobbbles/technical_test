@@ -59,10 +59,12 @@ docker run --rm technical_test bundle exec rails test
 # End-to-End Tests
 
 Manual Setup:
-# Install Chromium (first time only)
+
+Install Chromium 
 sudo snap install chromium
 
 Run system tests
 bin/rails test:system
 
+# Contact
 Please contact TJ Hornsey at tj.hornsey@gmail.com
