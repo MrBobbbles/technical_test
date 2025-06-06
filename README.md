@@ -46,6 +46,7 @@ git clone https://github.com/MrBobbbles/technical_test.git
 cd technical_test
 
 docker build -t technical_test .
+
 Note: Build process takes approximately 5-10 minutes
 
 Run the container
