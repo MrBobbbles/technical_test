@@ -4,8 +4,11 @@ A Ruby on Rails application for photo galleries
 Prerequisites
 
 Ruby (version specified in .ruby-version or Gemfile)
+
 Git
+
 Docker (for containerized setup)
+
 Ubuntu WSL (for Windows users doing manual setup)
 
 # Setup Options
